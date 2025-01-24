@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call History</title>
+    <link rel="stylesheet" href="/history.css"> 
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+        <h1>Call History</h1>
+
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Room ID</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (callHistory.length > 0) { %>
+                    <% callHistory.forEach(call => { %>
+                        <tr>
+                            <td><%= call.roomId %></td>
+                            <td><%= call.startTime %></td>
+                            <td><%= call.endTime %></td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="3">No call history found.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
